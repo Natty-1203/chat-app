@@ -1,0 +1,60 @@
+.addUser{
+    max-width: max-content;
+    max-height: max-content;
+    padding: 30px;
+    border-radius: 10px;
+    background-color: rgba(17, 25, 40, 0.782);
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    form{
+        display: flex;
+        gap: 20px;
+        input{
+            padding: 20px;
+            border-radius: 10px;
+            border: none;
+            outline: none;
+        }
+        button{
+            background-color: #1a73e8;
+            padding: 20px;
+            border-radius: 10px;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+    }
+    .user{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 50px;
+
+        .detail{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 20px;
+            img{
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+           
+        }
+        button{
+            background-color: #1a73e8;
+            padding: 10px;
+            border-radius: 10px;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+    }
+}

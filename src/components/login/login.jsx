@@ -1,15 +1,18 @@
 import "./login.css";
 import { useState } from "react";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 import { setDoc, doc } from "firebase/firestore";
 import { dataBase, auth } from "../library/fb";
 import { toast } from "react-toastify";
 import axios from "axios";
 
 export function LogIn() {
-const cloudinaryUrl = import.meta.env.VITE_CLOUDINARY_URL;
-const uploadPreset = import.meta.env.VITE_CLOUDINARY_PRESET;
-const [Loading, setLoading] = useState(false);
+  const cloudinaryUrl = import.meta.env.VITE_CLOUDINARY_URL;
+  const uploadPreset = import.meta.env.VITE_CLOUDINARY_PRESET;
+  const [Loading, setLoading] = useState(false);
   const [avatar, setAvatar] = useState({
     file: null,
     url: "",
@@ -62,22 +65,22 @@ const [Loading, setLoading] = useState(false);
     } catch (error) {
       console.log(error);
       toast.error("Registration failed. Please try again.");
-    }finally{
+    } finally {
       setLoading(false);
     }
   };
   const handleLogin = async (e) => {
     e.preventDefault();
-     setLoading(true);
-     const form = new FormData(e.target);
-    const { email, password } = Object.fromEntries(form); 
+    setLoading(true);
+    const form = new FormData(e.target);
+    const { email, password } = Object.fromEntries(form);
     try {
-     await signInWithEmailAndPassword(auth, email, password);
+      await signInWithEmailAndPassword(auth, email, password);
       toast.success("you are logged in successfully");
-    } 
-     catch (error) {
+    } catch (error) {
+      console.log(error);
       toast.error("you have error in login");
-    }finally{
+    } finally {
       setLoading(false);
     }
   };
@@ -89,7 +92,9 @@ const [Loading, setLoading] = useState(false);
         <form onSubmit={handleLogin}>
           <input type="text" placeholder="email" name="email" />
           <input type="password" placeholder="password" name="password" />
-          <button type="submit" disabled={Loading}>{Loading? "Loading..." : "Sign In"}</button>
+          <button type="submit" disabled={Loading}>
+            {Loading ? "Loading..." : "Log In"}
+          </button>
         </form>
       </div>
       <div className="separator"></div>
@@ -110,7 +115,9 @@ const [Loading, setLoading] = useState(false);
           <input type="text" placeholder="username" name="username" />
           <input type="text" placeholder="email" name="email" />
           <input type="text" placeholder="password" name="password" />
-          <button type="submit" disabled={Loading}>{Loading? "Loading..." : "Sign Un"}</button>
+          <button type="submit" disabled={Loading}>
+            {Loading ? "Loading..." : "Sign Un"}
+          </button>
         </form>
       </div>
     </div>
